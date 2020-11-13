@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   var _name;
   var _age;
+  int currentIndex = 0;
 
   final nameCon = new TextEditingController();
   final ageCon = new TextEditingController();
@@ -90,6 +91,36 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: "Search",
+            backgroundColor: Colors.green,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera),
+            label: "Camera",
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.yellow,
+          ),
+        ],
+        onTap: (int index){
+          setState(() {
+            currentIndex = index;
+          });
+        },
       ),
     );
   }
